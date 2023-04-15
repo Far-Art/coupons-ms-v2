@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public abstract class BasicDTO implements Serializable {
+public abstract class BasicDTO<ID> implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private final LocalDateTime created;
     private final LocalDateTime updated;
-    private String id;
+    private ID id;
 
 }

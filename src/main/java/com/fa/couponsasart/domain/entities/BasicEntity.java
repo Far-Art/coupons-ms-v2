@@ -1,10 +1,11 @@
 package com.fa.couponsasart.domain.entities;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,10 +16,9 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-@ToString
 @SuperBuilder
 @MappedSuperclass
-public abstract class BasicEntity {
+public abstract class BasicEntity<ID> {
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -27,10 +27,10 @@ public abstract class BasicEntity {
     @UpdateTimestamp
     private final LocalDateTime updated;
 
-    public abstract String getId();
+    public abstract ID getId();
 
     // TODO generating id as UUID, see https://vladmihalcea.com/uuid-database-primary-key/
 
-    public abstract void setId(String id);
+    public abstract void setId(ID id);
 
 }

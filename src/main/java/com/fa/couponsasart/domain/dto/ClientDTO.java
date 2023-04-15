@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public abstract class ClientDTO extends BasicDTO {
+public abstract class ClientDTO<ID> extends BasicDTO<ID> {
 
     @NotNull
     @NotBlank

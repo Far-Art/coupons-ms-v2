@@ -3,13 +3,16 @@ package com.fa.couponsasart.domain.entities;
 import com.fa.couponsasart.configurations.ValidationConstants;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,15 +22,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-//@ToString(callSuper = true, exclude = "owningCompany") // TODO fix the owning company lazy exception
-public class Coupon extends BasicEntity {
+public class Coupon extends BasicEntity<BigInteger> {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(length = 36, unique = true, updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "BIGINT", unique = true, updatable = false, nullable = false)
     @NotFound(action = NotFoundAction.IGNORE)
-    private String id;
+    private BigInteger id;
 
 //    @ManyToOne
 //    private Company owningCompany;

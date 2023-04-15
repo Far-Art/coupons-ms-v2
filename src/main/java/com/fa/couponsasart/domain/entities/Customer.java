@@ -20,9 +20,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-//@ToString(callSuper = true)
 //@JsonIdentityInfo(property = "id", generator = ObjectIdGenerators.PropertyGenerator.class)
-public class Customer extends Client {
+public class Customer extends Client<String> {
 
     @Id
     @GeneratedValue(generator = "UUID")

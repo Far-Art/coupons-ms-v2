@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = true)
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class CouponDTO extends BasicDTO implements DeeplyValidatedBean {
+public class CouponDTO extends BasicDTO<BigInteger> implements DeeplyValidatedBean {
 
 //    private CompanyDTO owningCompany;
 

@@ -21,7 +21,7 @@ public class CustomerRepositoryTest {
 
     // TODO rollback annotation is not working
     @Autowired
-    CustomersRepository repo;
+    CustomersRepository<String> repo;
 
     @Test
     @Transactional

@@ -19,6 +19,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ class CouponsControllerIntegrationTest {
     CouponsController controller;
 
     @Autowired
-    CouponsRepository repository;
+    CouponsRepository<BigInteger> repository;
 
     @Autowired
     CouponMapper mapper;
@@ -136,21 +137,21 @@ class CouponsControllerIntegrationTest {
     @Test
     void testNotFound() {
         assertThrows(NotFoundException.class, () -> {
-            controller.getById("NOT_VALID_ID");
+            controller.getById(new BigInteger("-999"));
         });
     }
 
     @Test
     void testUpdateByIdNotFound(){
         assertThrows(NotFoundException.class, () -> {
-            controller.updateById("NOT_VALID_ID", null);
+            controller.updateById(new BigInteger("-999"), null);
         });
     }
 
     @Test
     void testPatchByIdNotFound(){
         assertThrows(NotFoundException.class, () -> {
-            controller.patchById("NOT_VALID_ID", null);
+            controller.patchById(new BigInteger("-999"), null);
         });
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class CompanyDTO extends ClientDTO {
+public class CompanyDTO extends ClientDTO<String> {
 
     private String name;
 

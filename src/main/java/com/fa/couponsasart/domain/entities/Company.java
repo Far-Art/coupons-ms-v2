@@ -14,11 +14,10 @@ import org.hibernate.annotations.NotFoundAction;
 @Table(name = "companies")
 @Getter
 @Setter
-//@ToString(callSuper = true, exclude = "coupons")
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class Company extends Client {
+public class Company extends Client<String> {
 
     @Id
     @GeneratedValue(generator = "UUID")

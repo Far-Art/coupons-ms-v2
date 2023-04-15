@@ -1,23 +1,23 @@
 package com.fa.couponsasart.services;
 
 import com.fa.couponsasart.domain.dto.CouponDTO;
-import com.fa.couponsasart.domain.entities.Coupon;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-public interface CouponsService {
+public interface CouponsService<ID> {
 
-    List<CouponDTO> getAll();
+    List<CouponDTO> getAll(Optional<List<String>> category, Optional<BigDecimal> minPrice, Optional<BigDecimal> maxPrice);
 
-    Optional<CouponDTO> getById(String id);
+    Optional<CouponDTO> getById(ID id);
 
     CouponDTO addNew(CouponDTO dto);
 
-    boolean deleteById(String id);
+    boolean deleteById(ID id);
 
-    boolean updateById(String id, CouponDTO dto);
+    boolean updateById(ID id, CouponDTO dto);
 
-    boolean patchById(String id, CouponDTO dto);
+    boolean patchById(ID id, CouponDTO dto);
 
 }
