@@ -17,7 +17,7 @@ import org.hibernate.annotations.NotFoundAction;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class Company extends Client<String> {
+public class Company extends User<String> {
 
     @Id
     @GeneratedValue(generator = "UUID")

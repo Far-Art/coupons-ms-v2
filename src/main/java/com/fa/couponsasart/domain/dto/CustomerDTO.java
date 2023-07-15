@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class CustomerDTO extends ClientDTO<String> {
+public class CustomerDTO extends UserDTO<String> {
 
     @NotNull
     @NotBlank

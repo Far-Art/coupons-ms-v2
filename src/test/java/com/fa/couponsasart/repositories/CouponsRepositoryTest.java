@@ -1,15 +1,12 @@
 package com.fa.couponsasart.repositories;
 
 import com.fa.couponsasart.domain.entities.Coupon;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.annotation.Rollback;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,11 +17,11 @@ public class CouponsRepositoryTest {
 
     // TODO make more validations
     @Autowired
-    CouponsRepository<BigInteger> repo;
+    CouponsRepository repo;
 
     @Test
-    @Transactional
-    @Rollback
+//    @Transactional
+//    @Rollback
     void testSaveValid() {
         Coupon coupon = Coupon.builder()
                 .title("SaveTestCoupon")

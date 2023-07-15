@@ -2,6 +2,7 @@ package com.fa.couponsasart.domain.entities;
 
 import com.fa.couponsasart.configurations.JpaConstants;
 import com.fa.couponsasart.configurations.ValidationConstants;
+import com.fa.couponsasart.security.UserRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public abstract class Client<ID> extends BasicEntity<ID> {
+public abstract class User<ID> extends BasicEntity<ID> {
 
     @NotNull
     @NotBlank
@@ -33,5 +34,8 @@ public abstract class Client<ID> extends BasicEntity<ID> {
     @Size(min = ValidationConstants.Client.PASSWORD_MIN_LEN, max = ValidationConstants.Client.PASSWORD_MAX_LEN)
     @Pattern(regexp = ValidationConstants.Regex.PASSWORD)
     private String password;
+
+    @NotNull
+    private UserRole role;
 
 }

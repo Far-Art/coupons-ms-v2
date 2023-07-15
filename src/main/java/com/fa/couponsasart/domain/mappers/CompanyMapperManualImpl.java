@@ -19,6 +19,7 @@ public class CompanyMapperManualImpl implements CompanyMapper {
                 .name(dto.getName())
                 .email(dto.getEmail())
                 .password(dto.getPassword())
+                .role(dto.getRole())
                 .created(dto.getCreated())
                 .updated(dto.getUpdated())
                 .build();
@@ -34,6 +35,7 @@ public class CompanyMapperManualImpl implements CompanyMapper {
                 .id(company.getId())
                 .name(company.getName())
                 .email(company.getEmail())
+                .role(company.getRole())
                 .created(company.getCreated())
                 .updated(company.getUpdated())
                 .build();

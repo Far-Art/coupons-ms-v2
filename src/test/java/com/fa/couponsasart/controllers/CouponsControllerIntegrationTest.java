@@ -35,7 +35,7 @@ class CouponsControllerIntegrationTest {
     CouponsController controller;
 
     @Autowired
-    CouponsRepository<BigInteger> repository;
+    CouponsRepository repository;
 
     @Autowired
     CouponMapper mapper;

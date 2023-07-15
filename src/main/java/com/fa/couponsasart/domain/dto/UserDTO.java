@@ -2,6 +2,7 @@ package com.fa.couponsasart.domain.dto;
 
 
 import com.fa.couponsasart.configurations.ValidationConstants;
+import com.fa.couponsasart.security.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -17,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public abstract class ClientDTO<ID> extends BasicDTO<ID> {
+public abstract class UserDTO<ID> extends BasicDTO<ID> {
 
     @NotNull
     @NotBlank
@@ -29,4 +30,7 @@ public abstract class ClientDTO<ID> extends BasicDTO<ID> {
     @Size(min = ValidationConstants.Client.PASSWORD_MIN_LEN, max = ValidationConstants.Client.PASSWORD_MAX_LEN)
     @Pattern(regexp = ValidationConstants.Regex.PASSWORD)
     private String password;
+
+    @NotNull
+    private UserRole role;
 }

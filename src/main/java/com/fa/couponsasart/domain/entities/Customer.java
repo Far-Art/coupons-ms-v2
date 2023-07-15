@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @SuperBuilder
 //@JsonIdentityInfo(property = "id", generator = ObjectIdGenerators.PropertyGenerator.class)
-public class Customer extends Client<String> {
+public class Customer extends User<String> {
 
     @Id
     @GeneratedValue(generator = "UUID")
