@@ -2,7 +2,7 @@ package com.fa.couponsasart.domain.entities;
 
 import com.fa.couponsasart.configurations.JpaConstants;
 import com.fa.couponsasart.configurations.ValidationConstants;
-import com.fa.couponsasart.security.UserRole;
+import com.fa.couponsasart.domain.beans.UserRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;

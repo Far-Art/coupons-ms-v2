@@ -1,12 +1,10 @@
 package com.fa.couponsasart.domain.entities;
 
 import com.fa.couponsasart.configurations.ValidationConstants;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -14,6 +12,8 @@ import org.hibernate.annotations.NotFoundAction;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "coupons")
@@ -65,9 +65,9 @@ public class Coupon extends BasicEntity<BigInteger> {
     @Column(length = 500)
     private String imageUrl;
 
-//    @ManyToMany
-//    @JoinTable(name = "customers_coupons", joinColumns = @JoinColumn(name = "coupon_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
-//    @ToString.Exclude
-//    @JsonIgnoreProperties({"coupons"})
-//    private final Set<Customer> customers = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "customers_coupons", joinColumns = @JoinColumn(name = "coupon_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
+    @ToString.Exclude
+    @JsonIgnoreProperties({"coupons"})
+    private final Set<Customer> customers = new HashSet<>();
 }

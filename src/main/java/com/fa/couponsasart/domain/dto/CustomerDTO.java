@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 @Data
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class CustomerDTO extends UserDTO<String> {
+public class CustomerDTO extends UserDTO<BigInteger> {
 
     @NotNull
     @NotBlank

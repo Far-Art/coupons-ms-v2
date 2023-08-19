@@ -10,10 +10,10 @@ import java.util.function.Predicate;
 
 public interface CustomerService {
 
-    int buyCoupons(BigInteger coupon, BigInteger... moreCoupons);
+    int buyCoupons(BigInteger customerId, BigInteger couponId, BigInteger... moreCouponIds);
 
-    List<Coupon> getMyCoupons(Optional<Predicate<Coupon>> filter);
+    List<Coupon> getMyCoupons(BigInteger customerId, Optional<Predicate<Coupon>> filter);
 
-    Customer getMyInfo();
+    Customer getMyInfo(BigInteger customerId);
 
 }

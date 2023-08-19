@@ -21,13 +21,13 @@ public class CustomerRepositoryTest {
 
     // TODO rollback annotation is not working
     @Autowired
-    CustomersRepository<String> repo;
+    CustomersRepository repo;
 
     @Test
     @Transactional
     @Rollback
     public void testSaveValid() {
-        Customer cust = Customer.builder()
+        Customer customer = Customer.builder()
                 .email("testsave@gmail.com")
                 .password("Password123")
                 .firstName("firstName")
@@ -35,7 +35,7 @@ public class CustomerRepositoryTest {
                 .birthDay(LocalDate.of(2000, 1, 1))
                 .build();
 
-        Customer saved = repo.save(cust);
+        Customer saved = repo.save(customer);
         repo.flush(); // flush is needed for validations to perform
 
         assertThat(saved).isNotNull();
@@ -49,7 +49,7 @@ public class CustomerRepositoryTest {
     @Transactional
     @Rollback
     public void testCustomerValidations() {
-        Customer cust = Customer.builder()
+        Customer customer = Customer.builder()
                 .email("BadEmail@gmail")
                 .password("Pass")
                 .middleName("")
@@ -58,7 +58,7 @@ public class CustomerRepositoryTest {
 
         ConstraintViolationException validationException = null;
         try {
-            repo.save(cust);
+            repo.save(customer);
             repo.flush(); // flush is needed for validations to perform
         } catch (ConstraintViolationException e) {
             validationException = e;

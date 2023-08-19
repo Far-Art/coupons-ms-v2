@@ -23,6 +23,4 @@ public interface CouponService {
 
     void patchById(BigInteger id, CouponDTO dto);
 
-    <ID> Page<CouponDTO> findAllByUser(ID userId, Optional<Integer> pageNumber, Optional<Integer> pageSize, Optional<Predicate<CouponDTO>> filter);
-
 }

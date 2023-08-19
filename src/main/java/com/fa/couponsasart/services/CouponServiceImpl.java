@@ -78,15 +78,7 @@ public class CouponServiceImpl implements CouponService {
             return;
         }
 
-
         // TODO implement patch
-    }
-
-    @Override
-    public <ID> Page<CouponDTO> findAllByUser(ID userId, Optional<Integer> pageNumber, Optional<Integer> pageSize, Optional<Predicate<CouponDTO>> filter) {
-        PageRequest pageRequest = buildPageRequest(pageNumber, pageSize);
-        Page<Coupon> page =  couponsRepo.findAllByUserId(userId, pageRequest);
-        return page.map(mapper::toDto);
     }
 
     private Coupon findById(BigInteger id) {

@@ -15,5 +15,4 @@ public interface CouponsRepository extends JpaRepository<Coupon, BigInteger> {
 
     Page<Coupon> findByCategoryIgnoreCaseIn(List<String> categories, Pageable pageable);
 
-    <ID> Page<Coupon> findAllByUserId(ID userId, Pageable pageable);
 }

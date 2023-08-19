@@ -2,7 +2,7 @@ package com.fa.couponsasart.domain.dto;
 
 
 import com.fa.couponsasart.configurations.ValidationConstants;
-import com.fa.couponsasart.security.UserRole;
+import com.fa.couponsasart.domain.beans.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
